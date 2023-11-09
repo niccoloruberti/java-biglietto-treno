@@ -20,8 +20,26 @@ public class CalcolaBiglietto {
 		//converto gli anni da stringa a numero
 		int ageInt = Integer.valueOf(ageStr);
 		
-		System.out.println(kmInt);
-		System.out.println(ageInt);
+		//calcolo il prezzo del biglietto
+		double price = 0.21 * kmInt;
+		
+		if( ageInt < 18) {
+			//applico uno sconto del 20% per i minorenni
+			double newPrice = price - (price * 0.20);
+			//formatto il prezzo
+			String formattedPrice = String.format("%.2f", newPrice);
+			System.out.println("il prezzo del biglietto è: " + formattedPrice + " euro");
+		} else if ( ageInt > 65 ) {
+			//applico uno sconto del 40% per gli over 65
+			double newPrice = price - (price * 0.40);
+			//formatto il prezzo
+			String formattedPrice = String.format("%.2f", newPrice);
+			System.out.println("il prezzo del biglietto è: " + formattedPrice + " euro");
+		} else {
+			String formattedPrice = String.format("%.2f", price);
+			//stampo a schermo il prezzo originale
+			System.out.println("il prezzo del biglietto è: " + formattedPrice + " euro");
+		}
 	
 	}
 	
